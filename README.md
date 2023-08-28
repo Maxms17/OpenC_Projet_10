@@ -11,6 +11,7 @@ L'application est le site d'une agence evenementielle.
 - `yarn install`
 
 ## Avant 
+- `Set-ExecutionPolicy -Scope Process Bypass`
 - `yarn run build`
 
 ## Lancement de l'application
