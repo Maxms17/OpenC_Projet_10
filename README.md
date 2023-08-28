@@ -10,6 +10,9 @@ L'application est le site d'une agence evenementielle.
 ## Installation
 - `yarn install`
 
+## Avant 
+- `yarn run build`
+
 ## Lancement de l'application
 - `yarn start`
 
