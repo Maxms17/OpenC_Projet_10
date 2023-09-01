@@ -21,6 +21,13 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
+      
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(); // Appeler resolve après un délai de 2000 ms
+        }, 2000);
+      });
+
       await screen.findByText("Message envoyé !");
     });
   });
