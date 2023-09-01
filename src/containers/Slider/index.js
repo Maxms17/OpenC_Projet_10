@@ -31,7 +31,8 @@ const Slider = () => {
             }`}
           >
             <img src={event.cover} alt="forum" />
-            
+            {console.log(event.cover)} {/* Déplacez le console.log ici */}
+            {console.log("image suivante")} 
             <div className="SlideCard__descriptionContainer">
               <div className="SlideCard__description">
                 <h3>{event.title}</h3>
