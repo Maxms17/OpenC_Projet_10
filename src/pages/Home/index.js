@@ -109,16 +109,16 @@ const Page = () => {
             </div>
           }
         >
-          {({ setIsOpened }) => (
-            <Form
-              onSuccess={() => {
-                act(() => {
-                  setIsOpened(true);
-                });
-              }}
-              onError={() => null}
-            />
-          )}
+        {({ setIsOpened }) => (
+          <Form
+            onSuccess={() => {
+              act(() => {
+                setIsOpened(true);
+              });
+            }}
+            onError={() => null}
+          />
+        )}
         </Modal>
       </div>
     </main>
