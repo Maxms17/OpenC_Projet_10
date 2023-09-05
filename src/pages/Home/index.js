@@ -1,3 +1,6 @@
+import React from "react";
+import { act } from 'react-dom/test-utils';
+
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
@@ -13,6 +16,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
+  
   const {last} = useData()
   
   return <>
@@ -107,7 +111,11 @@ const Page = () => {
         >
           {({ setIsOpened }) => (
             <Form
-              onSuccess={() => setIsOpened(true)}
+              onSuccess={() => {
+                act(() => {
+                  setIsOpened(true);
+                });
+              }}
               onError={() => null}
             />
           )}

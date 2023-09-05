@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import PropTypes from "prop-types";
+import { act } from '@testing-library/react';
 import Field, { FIELD_TYPES } from "../../components/Field";
 import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
@@ -17,8 +18,12 @@ const Form = ({ onSuccess, onError }) => {
       // We try to call mockContactApi
       try {
         await mockContactApi();
-        setSending(false);
-        setSubmitSuccess(true); // Définir la soumission comme réussie
+        act(() => {
+          setSending(false);
+        });
+        act(() => {
+          setSubmitSuccess(true);
+        });
         onSuccess(); // Appeler la fonction onSuccess si nécessaire
       } catch (err) {
         setSending(false);
