@@ -57,7 +57,7 @@ const Select = ({
           className={collapsed ? "open" : "close"}
           onClick={(e) => {
             e.preventDefault();
-            console.log("collapsed :", collapsed);
+            // console.log("collapsed :", collapsed);
             setCollapsed(!collapsed);
           }}
         >

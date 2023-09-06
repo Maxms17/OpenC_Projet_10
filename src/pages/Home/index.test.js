@@ -1,13 +1,17 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Home from "./index";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
     render(<Home />);
-    await screen.findByText("Email");
-    await screen.findByText("Nom");
-    await screen.findByText("Prénom");
-    await screen.findByText("Personel / Entreprise");
+    
+    // Attendez que les éléments soient présents dans le DOM
+    await waitFor(() => {
+      expect(screen.getByText("Nom")).toBeInTheDocument();
+      expect(screen.getByText("Prénom")).toBeInTheDocument();
+      expect(screen.getByText("Personel / Entreprise")).toBeInTheDocument();
+      expect(screen.getByText("Email")).toBeInTheDocument();
+    });
   });
 
   describe("and a click is triggered on the submit button", () => {
