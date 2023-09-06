@@ -16,9 +16,10 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
+    console.log("Nouvelle valeur sélectionnée :", newValue);
     onChange();
     setValue(newValue);
-    setCollapsed(newValue);
+    setCollapsed(!collapsed);
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
@@ -56,6 +57,7 @@ const Select = ({
           className={collapsed ? "open" : "close"}
           onClick={(e) => {
             e.preventDefault();
+            console.log("collapsed :", collapsed);
             setCollapsed(!collapsed);
           }}
         >
