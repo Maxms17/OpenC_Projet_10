@@ -16,10 +16,10 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    console.log("Nouvelle valeur sélectionnée :", newValue);
-    onChange();
+    // console.log("Nouvelle valeur sélectionnée :", newValue);
     setValue(newValue);
     setCollapsed(!collapsed);
+    onChange(newValue); // Déplacez cet appel après la mise à jour de l'état
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">

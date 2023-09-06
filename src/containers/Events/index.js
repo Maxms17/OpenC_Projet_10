@@ -28,7 +28,7 @@ const EventList = () => {
   });
 
   const changeType = (evtType) => {
-    console.log("evtType dans changeType :", evtType); // Ajoutez ce log
+    // console.log("evtType dans changeType :", evtType);
     setCurrentPage(1);
     setType(evtType);
   };
@@ -46,7 +46,7 @@ const EventList = () => {
           <Select
              selection={Array.from(typeList)}
              onChange={(evtType) => {
-               console.log("Type sélectionné dans le composant Select :", evtType);
+               // console.log("Type sélectionné dans le composant Select :", evtType);
                changeType(evtType);
              }}
           />
