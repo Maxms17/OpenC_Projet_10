@@ -9,7 +9,6 @@ const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 1000
 
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false); // Nouvelle variable d'état
 
   const sendContact = useCallback(
     async (evt) => {
@@ -20,9 +19,6 @@ const Form = ({ onSuccess, onError }) => {
         await mockContactApi();
         act(() => {
           setSending(false);
-        });
-        act(() => {
-          setSubmitSuccess(true);
         });
         onSuccess(); // Appeler la fonction onSuccess si nécessaire
       } catch (err) {
@@ -35,11 +31,6 @@ const Form = ({ onSuccess, onError }) => {
 
   return (
     <form onSubmit={sendContact}>
-      {submitSuccess ? (
-        <div>
-          <p>Le formulaire a été soumis avec succès !</p>
-        </div>
-      ) : (
         <div className="row">
           <div className="col">
             <Field placeholder="" label="Nom" />
@@ -64,7 +55,6 @@ const Form = ({ onSuccess, onError }) => {
             />
           </div>
         </div>
-      )}
     </form>
   );
 };

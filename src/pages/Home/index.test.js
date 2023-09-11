@@ -5,13 +5,10 @@ describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
     render(<Home />);
     
-    // Attendez que les éléments soient présents dans le DOM
-    await waitFor(() => {
-      expect(screen.getByText("Nom")).toBeInTheDocument();
-      expect(screen.getByText("Prénom")).toBeInTheDocument();
-      expect(screen.getByText("Personel / Entreprise")).toBeInTheDocument();
-      expect(screen.getByText("Email")).toBeInTheDocument();
-    });
+    await screen.findByText("Email");
+    await screen.findByText("Nom");
+    await screen.findByText("Prénom");
+    await screen.findByText("Personel / Entreprise");
   });
 
   describe("and a click is triggered on the submit button", () => {
@@ -25,14 +22,7 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(); // Appeler resolve après un délai de 2000 ms
-        }, 2000);
-      });
-
-      await screen.findByText("Message envoyé !");
+      await waitFor(() => screen.getByText("Message envoyé !"), {timeout: 2000}); 
     });
   });
 
